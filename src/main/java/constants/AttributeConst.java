@@ -1,10 +1,11 @@
 package constants;
 
+
 public enum AttributeConst {
 
     FLUSH("flush"),
 
-    MAX_ROW("maxrow"),
+    MAX_ROW("maxRow"),
     PAGE("page"),
 
     TOKEN("_token"),

@@ -16,10 +16,12 @@ public class EncodingFilter implements Filter {
 
 
     public EncodingFilter() {
+
     }
 
 
     public void destroy() {
+
     }
 
 
@@ -32,6 +34,7 @@ public class EncodingFilter implements Filter {
 
 
     public void init(FilterConfig fConfig) throws ServletException {
+
     }
 
 }

@@ -1,5 +1,6 @@
 package constants;
 
+
 public enum MessageConst {
 
     I_LOGINED("ログインしました"),
@@ -17,15 +18,17 @@ public enum MessageConst {
     E_NOTITLE("タイトルを入力してください。"),
     E_NOCONTENT("内容を入力してください。");
 
+
+
     private final String text;
+
 
     private MessageConst(final String text) {
         this.text = text;
     }
 
+
     public String getMessage() {
         return this.text;
     }
-
-
 }

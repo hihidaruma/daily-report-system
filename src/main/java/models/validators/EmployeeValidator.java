@@ -20,7 +20,7 @@ public class EmployeeValidator {
 
         String nameError = validateName(ev.getName());
         if(!nameError.equals("")) {
-            errors.add(passError);
+            errors.add(nameError);
         }
 
         String passError = validatePassword(ev.getPassword(), passwordCheckFlag);
@@ -41,7 +41,7 @@ public class EmployeeValidator {
 
             long employeesCount = isDuplicateEmployee(service, code);
 
-            if(employeeCount > 0) {
+            if(employeesCount > 0) {
                 return MessageConst.E_EMP_CODE_EXIST.getMessage();
             }
         }
@@ -50,7 +50,7 @@ public class EmployeeValidator {
     }
 
     private static long isDuplicateEmployee(EmployeeService service, String code) {
-        long emoloyeesCount = service.countByCode(code);
+        long employeesCount = service.countByCode(code);
         return employeesCount;
     }
 

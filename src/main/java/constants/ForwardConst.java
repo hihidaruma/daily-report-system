@@ -1,5 +1,6 @@
 package constants;
 
+
 public enum ForwardConst {
 
     ACT("action"),
@@ -33,11 +34,14 @@ public enum ForwardConst {
     FW_REP_NEW("reports/new"),
     FW_REP_EDIT("reports/edit");
 
+
     private final String text;
+
 
     private ForwardConst(final String text) {
         this.text = text;
     }
+
 
     public String getValue() {
         return this.text;

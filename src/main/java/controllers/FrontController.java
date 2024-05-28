@@ -13,7 +13,8 @@ import actions.ActionBase;
 import actions.UnknownAction;
 import constants.ForwardConst;
 
-@WebServlet(name = "FrontController", urlPatterns = { "/" })
+
+@WebServlet("/")
 public class FrontController extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -21,8 +22,10 @@ public class FrontController extends HttpServlet {
         super();
     }
 
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         ActionBase action = getAction(request, response);
 
         action.init(getServletContext(), request, response);
@@ -30,10 +33,13 @@ public class FrontController extends HttpServlet {
         action.process();
     }
 
+
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         doGet(request, response);
     }
+
 
     @SuppressWarnings({ "rawtypes", "unchecked" })
     private ActionBase getAction(HttpServletRequest request, HttpServletResponse response) {
@@ -43,19 +49,17 @@ public class FrontController extends HttpServlet {
 
             String actionString = request.getParameter(ForwardConst.ACT.getValue());
 
-            type = Class.forName(String.format("action.%sAction", actionString));
+            type = Class.forName(String.format("actions.%sAction", actionString));
 
-            action = (ActionBase)(type.asSubclass(ActionBase.class)
+            action = (ActionBase) (type.asSubclass(ActionBase.class)
                     .getDeclaredConstructor()
                     .newInstance());
 
-        }catch(ClassNotFoundException | InstantiationException | IllegalAccessException | SecurityException
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SecurityException
                 | IllegalArgumentException | InvocationTargetException| NoSuchMethodException e) {
 
             action = new UnknownAction();
-
         }
-
         return action;
     }
 

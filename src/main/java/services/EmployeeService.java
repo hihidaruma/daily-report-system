@@ -24,7 +24,7 @@ public class EmployeeService extends ServiceBase{
     }
 
     public long countAll() {
-        long empcount = (long) em.createNamedQuery(JpaConst.Q_EMP_COUNT, Long.class)
+        long empCount = (long) em.createNamedQuery(JpaConst.Q_EMP_COUNT, Long.class)
                 .getSingleResult();
 
         return empCount;
