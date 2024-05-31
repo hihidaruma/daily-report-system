@@ -9,7 +9,7 @@ import models.Report;
  *日報データのDTOモデルーViewモデルの変換を行うクラス
  *
  */
-public class RequestConverter {
+public class ReportConverter {
 
     /*
      * ViewモデルのインスタンスからDTOモデルのインスタンスを作成する
